@@ -183,3 +183,13 @@ const missing_students = [
         image: null,
     },
 ];
+
+
+/*function get_random_image() {
+
+    random_index = Math.floor(Math.random() * students.length);
+}
+
+selected_image = students[random_index]
+
+document.getElementById('classmate').src = `./students/${selected_image}`*/

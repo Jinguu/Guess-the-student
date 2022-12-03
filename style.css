@@ -1,0 +1,43 @@
+html {
+    font-size: 1.5em;
+}
+
+body {
+    color: #333;
+    font-family: 'Baskervville', monospace;
+    font-weight: 400;
+}
+
+
+#top {
+    text-align: center;
+}
+
+.btn {
+    display: flex;
+    background: transparent;
+    border: none;
+    background-color: rgb(216, 34, 74);
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.students {
+    display: flex;
+    height: 100%;
+    border: 5px solid #555;
+    margin: auto;
+
+}
+
+.random_students {
+    width: 40%;
+}
+
+img {
+    max-width: 700px;
+    height: 40px;
+}
