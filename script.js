@@ -198,6 +198,14 @@ const h2 = document.querySelector('h2');
 
 
 let quiz = students
+let questions = 0
+let random;
+let answer;
+let score = 0;
+let guesses = 0;
+let usedName = [];
+
+
 
 const shuffling = (studentArray) => {
     for (let i = 0; i < studentArray.length; i++) {
@@ -237,6 +245,11 @@ const show = () => {
 
 }
 
+const autoScore = () => {
+    result.innerHTML = `
+    `
+}
+
 const startGame = () => {
     answerList.forEach((btn, i) => {
         btn.innerText = quiz[i].name;
@@ -247,8 +260,33 @@ const startGame = () => {
     });
 }
 
-answerList.addEventListener('click', () => {
-    if ()
+answerList.addEventListener('click', e => {
+    if (e.target.tagName === 'button') {
+        guesses++;
 
-};
+        if (e.target.innerText == answer.name) {
+            score++;
+            e.target.classList.add('correct');
+            console.log(Correct);
+        }
+
+        usedName.push(answer);
+        quiz = quiz.filter((e) => e !== answer);
+        console.log(quiz);
+
+        if (guesses <= questions) {
+            startGame();
+
+
+            if (guesses === questions) {
+                show();
+                autoScore();
+                result.classList.remove('hide')
+                h2.classList.add('hide')
+                resetScore();
+                usedName = [];
+            }
+        }
+    }
+});
 
