@@ -21,16 +21,39 @@
 
 
 
-<body class="bg-white text white">
-    <div id="top">
-        <h1> Guess the student </h1>
+<body>
+    <div class="container">
+        <div class="results">
+            <div class="score"></div>
+        </div>
+        <div class="quiz_container">
+
+        </div>
+
+        <div id="student" class="list">
+            <h1 class="text">Guess the student</h1>
+        </div>
+
+        <div id="images" class="image_css">
+            <img src="" alt="image">
+        </div>
+        <div id="answer" class="answer_buttons">
+            <button class="buttons"></button>
+            <button class="buttons"></button>
+            <button class="buttons"></button>
+            <button class="buttons"></button>
+        </div>
+    </div>
+    <div id="start" class="intro">
+        <h2>Choose alternativ!</h2>
+        <button id="option_1" class="start_button">10 questions</button>
+        <button id="option_2" class="start_button">15 questions</button>
+        <button id="option_3" class="start_button">20 questions</button>
+        <button id="reset_btn" class="reset_button">Reset game</button>
+        <button id="result_btn" class="check_results">Check result</button>
     </div>
 
-
-    <img class="random_student" src="" alt="random student">
-
-
-    <button onclick="get_random_image()" class="btn">Next Student</button>
+    </div>
 
 
     <script src="script.js"></script>
