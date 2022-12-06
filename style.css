@@ -19,13 +19,29 @@ h2 {
     color: #08038c
 }
 
+.answer_buttons {
+    width: 750px;
+    padding: 10px 0 10px 20px;
+    vertical-align: middle;
+    background-color: rgb(255, 255, 255, 0.5);
+    color: #000000;
+    border-radius: 20px;
+}
+
+@media(min-width: 500px) {
+
+    .answer_buttons {
+        margin: 0 0 0 -20px;
+    }
+}
+
 .buttons {
     color: #08038c;
-    width: 650px;
+    width: 500px;
     padding: 10px 0 10px 15px;
     vertical-align: middle;
     background-color: rgb(255, 255, 255, 0.5);
-    margin: 10px 0 10px 200px;
+    margin: 10px 0 10px 100px;
     color: #000000;
     border-radius: 20px;
 
