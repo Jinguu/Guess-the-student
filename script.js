@@ -184,17 +184,19 @@ const missing_students = [
     },
 ];
 
-
-const studentList = document.querySelector('#student');
-const imageList = document.querySelector('#images');
-const answerList = document.querySelector('#answer');
-const start = document.querySelector('#start');
+const container = document.querySelector('#quiz_container');
+const highscore = document.querySelector('#highscore');
+const imageList = document.querySelector('#images')
+const answerList = document.querySelector('#answer-btns');
+const startButtons = document.querySelectorAll('#answer-btns button')
 const optionList1 = document.querySelector('#option_1');
 const optionList2 = document.querySelector('#option_2');
 const optionList3 = document.querySelector('#option_3');
-const reset = document.querySelector('#reset_btn');
 const result = document.querySelector('#result_btn');
+const reset = document.querySelector('#reset_btn');
+const resulty = document.querySelector('#results');
 const h2 = document.querySelector('h2');
+const scored = document.querySelector('.score')
 
 
 let quiz = students
@@ -219,46 +221,79 @@ const shuffling = (studentArray) => {
 
 
 const hide = () => {
-    studentList.classList.remove('hide')
-    imageList.classList.remove('hide')
-    answerList.classList.remove('hide')
-    reset.classList.remove('hide')
-    result.classList.remove('hide')
-    start.classList.add('hide')
+
+    h2.classList.add('hide')
     optionList1.classList.add('hide')
     optionList2.classList.add('hide')
     optionList3.classList.add('hide')
-    h2.classList.add('hide')
+    reset.classList.remove('hide')
+    result.classList.remove('hide')
+    container.classList.remove('hide')
 }
 
 const show = () => {
-    studentList.classList.add('hide')
-    imageList.classList.add('hide')
-    answerList.classList.add('hide')
-    reset.classList.add('hide')
-    result.classList.add('hide')
-    start.classList.remove('hide')
+
+    h2.classList.remove('hide')
     optionList1.classList.remove('hide')
     optionList2.classList.remove('hide')
     optionList3.classList.remove('hide')
-    h2.classList.remove('hide')
-
+    reset.classList.add('hide')
+    result.classList.add('hide')
+    container.classList.add('hide')
 }
 
+const resetScore = () => {
+    quiz = students;
+    score = 0;
+    guesses = 0;
+}
+
+
 const autoScore = () => {
-    result.innerHTML = `
+    scored.innerHTML = `
+    <h1> Your score is </h1>
+    <li> You gussed ${guesses} time(s).</li>
+    <li>${score} correct answer(s).</li>
     `
+
+    if (quiz.length === score && guesses <= quiz.length) {
+        scored.innerHTML += `<p> Good job ${score}/${quiz.length} with ${guesses} guesses</p>`
+    } else if (quiz.length === score) {
+        scored.innerHTML += `<p> All correct! Amazing </p>`
+    }
+
+    if (guesses >= quiz.length + 10 && quiz.length === score) {
+        scored.innerHTML += `<p> Alot of guesses either way well done</p>`
+    } else if (guesses <= 3 || score < 2) {
+        scored.innerHTML += `<p> Unfortunately you did not pass </p>`
+    }
+
 }
 
 const startGame = () => {
-    answerList.forEach((btn, i) => {
+    hide();
+    resulty.classList.add('hide')
+
+    shuffling(quiz);
+
+
+    startButtons.forEach((btn, i) => {
         btn.innerText = quiz[i].name;
         random = Math.floor(Math.random() * 3);
         imageList.firstElementChild.setAttribute('src', quiz[random].image);
         answer = quiz[random]
         console.log(random);
     });
+
+    startButtons.forEach((e) => {
+        e.classList.remove('correct')
+        e.classList.remove('wrong')
+    })
 }
+
+
+
+
 
 answerList.addEventListener('click', e => {
     if (e.target.tagName === 'button') {
@@ -281,7 +316,7 @@ answerList.addEventListener('click', e => {
             if (guesses === questions) {
                 show();
                 autoScore();
-                result.classList.remove('hide')
+                resulty.classList.remove('hide')
                 h2.classList.add('hide')
                 resetScore();
                 usedName = [];
@@ -290,3 +325,37 @@ answerList.addEventListener('click', e => {
     }
 });
 
+
+optionList1.addEventListener('click', () => {
+    questions = 10
+    startGame()
+});
+
+optionList2.addEventListener('click', () => {
+    questions = 15
+    startGame()
+});
+
+optionList3.addEventListener('click', () => {
+    questions = 20
+    startGame()
+});
+
+
+reset.addEventListener('click', () => {
+    resetScore()
+    usedName = [];
+    show();
+    alert('Game has been resetted!');
+});
+
+
+const showResults = () => {
+    show();
+    autoScore();
+    resulty.classList.remove('hide')
+    h2.classList.add('hide')
+    resetScore();
+    usedName = [];
+}
+result.addEventListener('click', (showResults));

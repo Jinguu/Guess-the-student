@@ -28,12 +28,6 @@ h2 {
     border-radius: 20px;
 }
 
-@media(min-width: 500px) {
-
-    .answer_buttons {
-        margin: 0 0 0 -20px;
-    }
-}
 
 .buttons {
     color: #08038c;
@@ -100,4 +94,18 @@ h2 {
 .check_results:hover {
     background: #08038c;
     color: #f6f6f6;
+}
+
+@media(min-width: 500px) {
+
+    .intro {
+        margin: 0 0 0 -200px;
+    }
+}
+
+@media(min-width: 500px) {
+
+    .answer_buttons {
+        margin: 0 0 0 -20px;
+    }
 }
