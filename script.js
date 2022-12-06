@@ -185,11 +185,70 @@ const missing_students = [
 ];
 
 
-/*function get_random_image() {
+const studentList = document.querySelector('#student');
+const imageList = document.querySelector('#images');
+const answerList = document.querySelector('#answer');
+const start = document.querySelector('#start');
+const optionList1 = document.querySelector('#option_1');
+const optionList2 = document.querySelector('#option_2');
+const optionList3 = document.querySelector('#option_3');
+const reset = document.querySelector('#reset_btn');
+const result = document.querySelector('#result_btn');
+const h2 = document.querySelector('h2');
 
-    random_index = Math.floor(Math.random() * students.length);
+
+let quiz = students
+
+const shuffling = (studentArray) => {
+    for (let i = 0; i < studentArray.length; i++) {
+        let j = Math.floor(Math.random() * (i + 1));
+        let temp = studentArray[i];
+        studentArray[i] = studentArray[j];
+        studentArray[j] = temp;
+    }
 }
 
-selected_image = students[random_index]
 
-document.getElementById('classmate').src = `./students/${selected_image}`*/
+
+const hide = () => {
+    studentList.classList.remove('hide')
+    imageList.classList.remove('hide')
+    answerList.classList.remove('hide')
+    reset.classList.remove('hide')
+    result.classList.remove('hide')
+    start.classList.add('hide')
+    optionList1.classList.add('hide')
+    optionList2.classList.add('hide')
+    optionList3.classList.add('hide')
+    h2.classList.add('hide')
+}
+
+const show = () => {
+    studentList.classList.add('hide')
+    imageList.classList.add('hide')
+    answerList.classList.add('hide')
+    reset.classList.add('hide')
+    result.classList.add('hide')
+    start.classList.remove('hide')
+    optionList1.classList.remove('hide')
+    optionList2.classList.remove('hide')
+    optionList3.classList.remove('hide')
+    h2.classList.remove('hide')
+
+}
+
+const startGame = () => {
+    answerList.forEach((btn, i) => {
+        btn.innerText = quiz[i].name;
+        random = Math.floor(Math.random() * 3);
+        imageList.firstElementChild.setAttribute('src', quiz[random].image);
+        answer = quiz[random]
+        console.log(random);
+    });
+}
+
+answerList.addEventListener('click', () => {
+    if ()
+
+};
+
