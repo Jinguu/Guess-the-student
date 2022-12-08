@@ -3,13 +3,6 @@ body {
     background: #6cf;
 }
 
-.text {
-    padding-top: 20px;
-    text-align: center;
-    font-size: 36px;
-    text-transform: uppercase;
-    color: #08038c;
-}
 
 h2 {
     padding-top: 20px;
@@ -18,6 +11,19 @@ h2 {
     text-transform: uppercase;
     color: #08038c
 }
+
+.hide {
+    display: none;
+}
+
+.text {
+    padding-top: 20px;
+    text-align: center;
+    font-size: 36px;
+    text-transform: uppercase;
+    color: #08038c;
+}
+
 
 .answer_buttons {
     width: 750px;

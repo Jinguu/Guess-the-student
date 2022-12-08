@@ -228,7 +228,6 @@ const hide = () => {
     optionList2.classList.add('hide')
     optionList3.classList.add('hide')
     container.classList.remove('hide')
-    result.classList.remove('hide')
     reset.classList.remove('hide')
 }
 
