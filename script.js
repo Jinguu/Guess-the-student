@@ -220,16 +220,18 @@ const shuffling = (studentArray) => {
 
 
 
+
 const hide = () => {
 
     h2.classList.add('hide')
     optionList1.classList.add('hide')
     optionList2.classList.add('hide')
     optionList3.classList.add('hide')
-    reset.classList.remove('hide')
-    result.classList.remove('hide')
     container.classList.remove('hide')
+    result.classList.remove('hide')
+    reset.classList.remove('hide')
 }
+
 
 const show = () => {
 
@@ -237,9 +239,9 @@ const show = () => {
     optionList1.classList.remove('hide')
     optionList2.classList.remove('hide')
     optionList3.classList.remove('hide')
-    reset.classList.add('hide')
-    result.classList.add('hide')
     container.classList.add('hide')
+    result.classList.add('hide')
+    reset.classList.add('hide')
 }
 
 const resetScore = () => {
@@ -296,13 +298,13 @@ const startGame = () => {
 
 
 answerList.addEventListener('click', e => {
-    if (e.target.tagName === 'button') {
+    if (e.target.tagName === 'BUTTON') {
         guesses++;
 
         if (e.target.innerText == answer.name) {
             score++;
-            e.target.classList.add('correct');
-            console.log(Correct);
+            e.target.classList.add('Correct');
+            console.log('Correct');
         }
 
         usedName.push(answer);
@@ -349,6 +351,13 @@ reset.addEventListener('click', () => {
     alert('Game has been resetted!');
 });
 
+
+reset.addEventListener('click', () => {
+    resetScore()
+    usedName = [];
+    show();
+    alert('Game has been resetted!');
+});
 
 const showResults = () => {
     show();

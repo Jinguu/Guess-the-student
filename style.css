@@ -96,16 +96,31 @@ h2 {
     color: #f6f6f6;
 }
 
-@media(min-width: 500px) {
+
+@media only screen and (min-width: 768px) {
+    .image_css img {
+        margin-left: 20%;
+    }
 
     .intro {
-        margin: 0 0 0 -200px;
+        margin: 0 0 0 -150px;
     }
+
 }
 
-@media(min-width: 500px) {
+@media only screen and (min-width: 1100px) {
+    .image_css img {
+        width: 50%;
+    }
+
+    .intro {
+        margin: 0 0 0 10px;
+    }
 
     .answer_buttons {
-        margin: 0 0 0 -20px;
+        margin: 0 0 0 200px;
+
     }
+
+
 }
